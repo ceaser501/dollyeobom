@@ -12,6 +12,12 @@ npm run dev
 
 ## 2. 사진 해석 서버 연결 (Supabase)
 
+> **현재 배포 상태 (2026-10-29)**: 기존 프로젝트 `oneteam-vote`(서울 리전)에 함께 올렸다.
+> 다른 서비스와 섞이지 않게 DB 객체 이름 앞에 `dollyeobom_`을 붙였다.
+> - DB: `dollyeobom_analyze_usage` 테이블, `dollyeobom_try_use_analyze()` 함수 — 적용 완료
+> - Edge Function: `analyze-problem` — 배포 완료
+> - 남은 일: `ANTHROPIC_API_KEY` 비밀값 등록 (아래 2-1)
+
 ### 2-1. API 키 등록 (한 번만)
 Supabase 대시보드 → 프로젝트 → **Edge Functions → Secrets**에서 추가한다. 키는 채팅·코드·저장소에 절대 넣지 않는다.
 
@@ -48,7 +54,7 @@ VITE_SUPABASE_ANON_KEY=<anon key>
 브라우저 (web/)
   └─ 사진을 1568px JPEG로 줄여서 전송 (anon 키)
 Supabase Edge Function (analyze-problem)
-  ├─ 하루 사용량 확인 (DB 함수 try_use_analyze)
+  ├─ 하루 사용량 확인 (DB 함수 dollyeobom_try_use_analyze)
   └─ Claude API 호출 (ANTHROPIC_API_KEY는 여기에만 있음)
        → JSON 스키마로 강제된 장면 데이터
 브라우저

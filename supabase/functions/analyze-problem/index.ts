@@ -25,7 +25,7 @@ const client = new Anthropic(); // ANTHROPIC_API_KEY 환경변수를 읽는다
 
 /** 하루 사용량 제한 (supabase/migrations/0001_analyze_usage.sql). 확인할 수 없으면 막는다. */
 async function tryUse(): Promise<boolean> {
-  const res = await fetch(`${Deno.env.get("SUPABASE_URL")}/rest/v1/rpc/try_use_analyze`, {
+  const res = await fetch(`${Deno.env.get("SUPABASE_URL")}/rest/v1/rpc/dollyeobom_try_use_analyze`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

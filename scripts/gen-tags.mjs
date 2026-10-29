@@ -19,7 +19,9 @@ const tags = rows.map((line) => {
 });
 
 const body = `// 자동 생성 파일 — 직접 수정하지 말고 data/curriculum-tags.csv 수정 후 node scripts/gen-tags.mjs 실행
-export const TAGS = ${JSON.stringify(tags, null, 2)} as const;
+export const TAGS = [
+${tags.map((t) => `  ${JSON.stringify(t)},`).join("\n")}
+] as const;
 `;
 for (const out of ["../web/src/data/tags.ts", "../supabase/functions/analyze-problem/tags.ts"]) {
   writeFileSync(new URL(out, import.meta.url), body);
