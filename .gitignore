@@ -6,3 +6,7 @@ results/
 node_modules/
 .env*
 .DS_Store
+dist/
+web/.env
+web/.env.local
+!.env.example

@@ -1,5 +1,11 @@
 # 장면 JSON 형식 (v0.1 초안)
 
+> **프로토타입(v0.2) 구현 현황** — `web/src/types.ts`가 기준이다.
+> - 3D로 그리는 타입은 `blocks`(쌓기나무)와 `net`(정육면체 전개도) 두 가지. 나머지는 `unsupported`로 받아 글 해설만 보여준다.
+> - `net`은 `faces: [{id, col, row}]` + `base_face`로 단순화했다 (아래 v0.1의 `cell`/`labels`/`valid` 대신). 전개도가 맞는지와 마주 보는 면은 화면이 직접 접어서 계산한다.
+> - 해설 단계는 `highlight_cells`(blocks), `highlight_faces`(net), `fold`(0~1) 필드를 쓴다.
+> - AI 출력은 `supabase/functions/analyze-problem/prompt.ts`의 JSON 스키마로 강제된다.
+
 비전 LLM이 문제 사진을 읽고 출력하는 형식이다. 렌더러는 이 JSON만 보고 3D를 그린다.
 AI는 3D 모델을 직접 만들지 않고, **미리 정의된 장면 타입과 치수만 채운다.**
 

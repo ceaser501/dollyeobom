@@ -37,7 +37,7 @@ AI가 문제를 해석해 **3D로 렌더링**하고 **단계별 해설**을 보�
 
 | 역할 | 선택 |
 |---|---|
-| 프론트엔드 | Next.js (모바일 웹 우선) |
+| 프론트엔드 | Vite + React (모바일 웹 우선) |
 | 3D | three.js + react-three-fiber + drei |
 | 백엔드/DB/인증/스토리지 | Supabase |
 | 문제 해석·해설 | 비전 LLM API (JSON 출력 강제) |
@@ -50,11 +50,27 @@ AI가 문제를 해석해 **3D로 렌더링**하고 **단계별 해설**을 보�
 4. **MVP 앱** — 촬영 → 확인 → 3D·해설 → 히스토리
 5. **리포트** — 태그별 약점, 주간 리포트(학부모 공유), 자체 제작 유사 문제
 
+## 프로토타입 실행
+
+```bash
+cd web && npm install && npm run dev
+```
+
+예시 문제는 API 키 없이 바로 볼 수 있다. 사진 해석 서버 연결은 [docs/setup-supabase.md](docs/setup-supabase.md) 참고.
+
+| 폴더 | 내용 |
+|---|---|
+| `web/` | 화면 (Vite + React + react-three-fiber). 2D/3D 보기, 단계별 해설, 다시 풀기 |
+| `supabase/functions/analyze-problem/` | 사진 → 장면 JSON (Claude API, 키는 서버에만) |
+| `supabase/migrations/` | 하루 사용량 제한 |
+| `scripts/gen-tags.mjs` | `data/curriculum-tags.csv` → 태그 모듈 생성 |
+
 ## 문서
 
 - [교육과정 태그 체계](docs/curriculum-tags.md)
 - [장면 JSON 형식](docs/scene-schema.md)
 - [검증 계획](docs/validation-plan.md)
+- [실행·배포 안내](docs/setup-supabase.md)
 - [기획 히스토리](docs/history.md) — 질문·답변·결정 사항 기록
 
 ## 유의사항
