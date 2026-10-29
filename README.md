@@ -55,6 +55,7 @@ AI가 문제를 해석해 **3D로 렌더링**하고 **단계별 해설**을 보�
 - [교육과정 태그 체계](docs/curriculum-tags.md)
 - [장면 JSON 형식](docs/scene-schema.md)
 - [검증 계획](docs/validation-plan.md)
+- [기획 히스토리](docs/history.md) — 질문·답변·결정 사항 기록
 
 ## 유의사항
 
