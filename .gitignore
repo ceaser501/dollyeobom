@@ -1,0 +1,8 @@
+# 수집한 문제 이미지와 실행 결과는 저작권 때문에 커밋하지 않는다
+samples/images/
+samples/answer-key.csv
+results/
+
+node_modules/
+.env*
+.DS_Store

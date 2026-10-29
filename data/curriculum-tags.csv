@@ -1,0 +1,25 @@
+tag_id,school,grade,unit,problem_type,display_tag,achievement_code,scene_types
+E1-SHAPE-IDENTIFY,초등,1,여러 가지 모양,같은 모양 찾기·분류하기 (상자·둥근기둥·공),초1-여러가지모양-모양분류,TODO,solids
+E1-SHAPE-PROPERTY,초등,1,여러 가지 모양,모양의 특징 (쌓기·굴리기·평평한 부분),초1-여러가지모양-모양특징,TODO,solids
+E2-BLOCK-COUNT,초등,2,쌓기나무,쌓은 모양의 쌓기나무 개수 세기,초2-쌓기나무-개수세기,TODO,blocks
+E2-BLOCK-POSITION,초등,2,쌓기나무,위치 설명하기 (위·앞·오른쪽·왼쪽),초2-쌓기나무-위치설명,TODO,blocks
+E2-BLOCK-BUILD,초등,2,쌓기나무,설명대로 쌓기·같은 모양 찾기,초2-쌓기나무-설명대로쌓기,TODO,blocks
+E5-CUBOID-PARTS,초등,5,직육면체,면·모서리·꼭짓점의 수와 성질,초5-직육면체-구성요소,TODO,solid
+E5-CUBOID-SKETCH,초등,5,직육면체,겨냥도 (보이지 않는 모서리),초5-직육면체-겨냥도,TODO,solid
+E5-CUBOID-NET-IDENTIFY,초등,5,직육면체,정육면체·직육면체 전개도 찾기,초5-직육면체-전개도찾기,TODO,net
+E5-CUBOID-NET-MATCH,초등,5,직육면체,전개도에서 마주 보는 면·만나는 점과 선분,초5-직육면체-전개도면점선,TODO,net
+E5-CUBOID-NET-LENGTH,초등,5,직육면체,전개도의 길이 구하기·전개도 그리기,초5-직육면체-전개도길이,TODO,net
+E6-PRISM-PARTS,초등,6,각기둥과 각뿔,각기둥의 구성 요소와 이름,초6-각기둥각뿔-각기둥구성,TODO,solid
+E6-PYRAMID-PARTS,초등,6,각기둥과 각뿔,각뿔의 구성 요소와 이름,초6-각기둥각뿔-각뿔구성,TODO,solid
+E6-PRISM-NET,초등,6,각기둥과 각뿔,각기둥 전개도 찾기·길이 구하기,초6-각기둥각뿔-각기둥전개도,TODO,net
+E6-PRISM-PYRAMID-COMPARE,초등,6,각기둥과 각뿔,각기둥과 각뿔 비교 (면·모서리·꼭짓점 수),초6-각기둥각뿔-비교,TODO,solid
+E6-CUBOID-VOLUME,초등,6,직육면체의 부피와 겉넓이,부피 구하기 (단위 정육면체),초6-부피겉넓이-부피,TODO,blocks
+E6-CUBOID-SURFACE,초등,6,직육면체의 부피와 겉넓이,겉넓이 구하기 (전개도 활용),초6-부피겉넓이-겉넓이,TODO,net
+E6-SPACE-VIEWS-DRAW,초등,6,공간과 입체,쌓은 모양 보고 위·앞·옆 모양 그리기,초6-공간과입체-위앞옆그리기,TODO,blocks
+E6-SPACE-VIEWS-TO-COUNT,초등,6,공간과 입체,위·앞·옆 모양 보고 개수 구하기,초6-공간과입체-위앞옆보고개수,TODO,blocks
+E6-SPACE-TOPNUM,초등,6,공간과 입체,위에서 본 모양에 수를 써서 나타내기,초6-공간과입체-위모양수쓰기,TODO,blocks
+E6-SPACE-LAYERS,초등,6,공간과 입체,층별로 나타낸 모양·여러 가지 모양 만들기,초6-공간과입체-층별모양,TODO,blocks
+E6-ROUND-PARTS,초등,6,원기둥·원뿔·구,원기둥·원뿔·구의 구성 요소와 성질,초6-원기둥원뿔구-구성요소,TODO,solid
+E6-CYLINDER-NET,초등,6,원기둥·원뿔·구,원기둥 전개도 찾기·길이 구하기,초6-원기둥원뿔구-원기둥전개도,TODO,net
+E6-REVOLUTION,초등,6,원기둥·원뿔·구,평면도형을 돌려 만든 입체,초6-원기둥원뿔구-돌려만든입체,TODO,revolution
+E6-ROUND-COMPARE,초등,6,원기둥·원뿔·구,원기둥·원뿔·구 비교 (위·앞·옆에서 본 모양 포함),초6-원기둥원뿔구-비교,TODO,solid

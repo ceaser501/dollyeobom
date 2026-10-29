@@ -1,0 +1,2 @@
+sample_id,file,source_url,photo_kind,tag_id,scene_type,scene_truth,answer,notes
+S001,S001.jpg,https://example.com/...,phone,E6-SPACE-VIEWS-TO-COUNT,blocks,"[[0,0,0],[1,0,0],[0,1,0],[0,0,1]]",4,
