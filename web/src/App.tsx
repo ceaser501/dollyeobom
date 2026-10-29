@@ -13,7 +13,8 @@ export default function App() {
 
   const accept = (image: string, problem: Problem) => {
     const entry: ProblemEntry = {
-      id: crypto.randomUUID(),
+      // crypto.randomUUID는 https가 아닌 주소(폰에서 http://192.168…로 열 때)에서 없을 수 있다
+      id: `p-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
       title: problem.question.slice(0, 24),
       createdAt: Date.now(),
       imageDataUrl: image,
