@@ -1,0 +1,6 @@
+01-blocks-count.jpg	6-2  1. 공간과 입체	정답: 9개
+02-top-numbers.jpg	6-2  1. 공간과 입체	정답: 9개
+03-views-count.jpg	6-2  1. 공간과 입체	정답: 5개 (최소)
+04-net-opposite.jpg	5-2  5. 직육면체	정답: 라
+05-net-choose.jpg	5-2  5. 직육면체	정답: ③
+06-cylinder.jpg	6-2  6. 원기둥, 원뿔, 구	정답: 31.4 cm
