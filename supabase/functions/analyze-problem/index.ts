@@ -1,12 +1,12 @@
 // 문제 사진 → 장면 JSON (docs/scene-schema.md v0.2)
 // 필요한 비밀값: ANTHROPIC_API_KEY
-// 선택 비밀값: ANTHROPIC_MODEL (기본 claude-opus-5-5), ANTHROPIC_EFFORT (기본 medium), DAILY_LIMIT (기본 50)
+// 선택 비밀값: ANTHROPIC_MODEL (기본 claude-opus-5-5), ANTHROPIC_EFFORT (기본 high), DAILY_LIMIT (기본 50)
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import Anthropic from "npm:@anthropic-ai/sdk@1.3.0";
 import { OUTPUT_SCHEMA, SYSTEM_PROMPT } from "./prompt.ts";
 
 const MODEL = Deno.env.get("ANTHROPIC_MODEL") ?? "claude-opus-5-5";
-const EFFORT = (Deno.env.get("ANTHROPIC_EFFORT") ?? "medium") as "low" | "medium" | "high";
+const EFFORT = (Deno.env.get("ANTHROPIC_EFFORT") ?? "high") as "low" | "medium" | "high";
 const DAILY_LIMIT = Number(Deno.env.get("DAILY_LIMIT") ?? "50");
 const MAX_IMAGE_BASE64 = 6_000_000;
 const MEDIA_TYPES = ["image/jpeg", "image/png", "image/webp"] as const;
@@ -46,7 +46,7 @@ type Raw = {
   understanding: string;
   question: string;
   choices: string[];
-  scene: { type: string; cells: number[][]; faces: { id: string; col: number; row: number }[]; base_face: string; reason: string };
+  scene: { type: string; column_notes: string; cells: number[][]; faces: { id: string; col: number; row: number }[]; base_face: string; reason: string };
   answer: { value: string; text: string };
   explanation: { text: string; camera: string; highlight_cells: number[][]; highlight_faces: string[]; fold: number }[];
   confidence: number;
@@ -126,8 +126,9 @@ Deno.serve(async (req) => {
     const text = response.content.find((b) => b.type === "text");
     if (!text || text.type !== "text") return json({ error: "AI 응답이 비어 있어요." }, 502);
 
-    const problem = toProblem(JSON.parse(text.text) as Raw);
-    console.log("analyzed", { model: response.model, tag: problem.tag_id, usage: response.usage });
+    const raw = JSON.parse(text.text) as Raw;
+    const problem = toProblem(raw);
+    console.log("analyzed", { model: response.model, tag: problem.tag_id, columns: raw.scene.column_notes, usage: response.usage });
     return json({ problem });
   } catch (e) {
     if (e instanceof Anthropic.RateLimitError) return json({ error: "요청이 많아요. 잠시 후 다시 시도해 주세요." }, 429);

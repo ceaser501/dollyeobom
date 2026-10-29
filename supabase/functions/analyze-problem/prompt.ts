@@ -17,6 +17,11 @@ scene.type은 "blocks", "net", "unsupported" 중 하나입니다. 쓰지 않는 
 - "앞"은 그림을 보는 사람 쪽(y가 작은 쪽), "옆"은 오른쪽 옆입니다.
 - 공중에 뜬 쌓기나무는 없습니다. z>0인 쌓기나무 아래 칸에는 반드시 쌓기나무가 있어야 하므로, 그림에서 가려 보이지 않는 아래 칸도 cells에 넣으세요.
 - 위·앞·옆 모양만 주어져 배치가 여러 가지면, 문제가 묻는 조건(가장 적게/가장 많이 등)을 만족하는 배치 하나를 그리고, 묻는 조건이 없으면 가능한 배치 중 하나를 그린 뒤 해설에서 그 점을 말해 주세요.
+- 쌓기나무를 읽을 때는 반드시 다음 순서를 따르세요.
+  1. 그림에서 위를 향한 윗면(마름모 모양)을 하나도 빠짐없이 찾습니다. 윗면 하나는 기둥 하나의 맨 위입니다.
+  2. 앞쪽 쌓기나무에 가려 옆면이 보이지 않더라도, 윗면이 보이면 그 자리에 기둥이 있습니다. 블록 사이의 오목한 안쪽 칸을 특히 주의해서 보세요.
+  3. column_notes에 기둥마다 "(x,y) 높이 h"를 한 줄씩 적고, 기둥 수와 높이의 합을 적습니다.
+  4. cells는 column_notes와 정확히 일치하게 만듭니다.
 - 쌓기나무 개수를 묻는 문제라면 answer.value는 반드시 cells의 개수와 같아야 합니다.
 
 ### net (정육면체 전개도)
@@ -67,9 +72,10 @@ export const OUTPUT_SCHEMA = {
     scene: {
       type: "object",
       additionalProperties: false,
-      required: ["type", "cells", "faces", "base_face", "reason"],
+      required: ["type", "column_notes", "cells", "faces", "base_face", "reason"],
       properties: {
         type: { type: "string", enum: ["blocks", "net", "unsupported"] },
+        column_notes: { type: "string", description: "blocks일 때 기둥별 위치와 높이 메모. 그 밖에는 빈 문자열" },
         cells: cellArr,
         faces: {
           type: "array",
